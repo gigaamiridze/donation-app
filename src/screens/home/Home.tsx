@@ -1,9 +1,9 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Header } from '../../components';
 
 function Home() {
   return (
-    <Text>Home</Text>
+    <Header title='Azzahri A.' type={1} />
   )
 }
 
