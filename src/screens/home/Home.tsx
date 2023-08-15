@@ -1,13 +1,17 @@
 import React from 'react';
-import { Header, Button } from '../../components';
+import { SafeAreaView } from 'react-native';
+import { globalStyle } from '../../assets';
+import { Header, Button, Tab } from '../../components';
 
 function Home() {
   return (
-    <>
+    <SafeAreaView style={[globalStyle.backgroundWhite, globalStyle.flex]}>
       <Header title='Azzahri A.' type={1} />
       <Button title='Donate' />
       <Button title='Confirm Payment' isDisabled={true} />
-    </>
+      <Tab title='Highlight' />
+      <Tab title='Lifestyle' isInactive={true} />
+    </SafeAreaView>
   )
 }
 
