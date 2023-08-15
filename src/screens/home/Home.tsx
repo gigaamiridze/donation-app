@@ -1,7 +1,7 @@
 import React from 'react';
 import { SafeAreaView } from 'react-native';
 import { globalStyle } from '../../assets';
-import { Header, Button, Tab } from '../../components';
+import { Header, Button, Tab, Badge } from '../../components';
 
 function Home() {
   return (
@@ -11,6 +11,7 @@ function Home() {
       <Button title='Confirm Payment' isDisabled={true} />
       <Tab title='Highlight' />
       <Tab title='Lifestyle' isInactive={true} />
+      <Badge title='Environment' />
     </SafeAreaView>
   )
 }
