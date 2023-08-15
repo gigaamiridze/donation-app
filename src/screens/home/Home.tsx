@@ -1,9 +1,13 @@
 import React from 'react';
-import { Header } from '../../components';
+import { Header, Button } from '../../components';
 
 function Home() {
   return (
-    <Header title='Azzahri A.' type={1} />
+    <>
+      <Header title='Azzahri A.' type={1} />
+      <Button title='Donate' />
+      <Button title='Confirm Payment' isDisabled={true} />
+    </>
   )
 }
 
