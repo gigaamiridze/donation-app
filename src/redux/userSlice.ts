@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IUserState } from '../interfaces';
+import { RootState } from '../redux';
 
 const initialState: IUserState = {
   id: 1,
@@ -19,5 +20,8 @@ const userSlice = createSlice({
     },
   },
 });
+
+export const selectUserState = (state: RootState) => state.user; 
+export const { setFirstName, setLastName } = userSlice.actions;
 
 export default userSlice.reducer;
