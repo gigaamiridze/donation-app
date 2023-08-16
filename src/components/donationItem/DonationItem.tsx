@@ -10,19 +10,23 @@ function DonationItem(props: IDonationItemProps) {
   return (
     <View>
       <View>
-        <Badge title={badgeTitle} />
+        <View style={style.badge}>
+          <Badge title={badgeTitle} />
+        </View>
         <Image 
           resizeMode='contain'
           source={{ uri: uri }}
           style={style.image}
         />
       </View>
-      <Header title={donationTitle} type={3} />
-      <Header 
-        title={`$${price.toFixed(2)}`} 
-        type={3} 
-        color='#156CF7' 
-      />
+      <View style={style.donationInfo}>
+        <Header title={donationTitle} type={3} />
+        <Header 
+          title={`$${price.toFixed(2)}`} 
+          type={3} 
+          color='#156CF7' 
+        />
+      </View>
     </View>
   )
 }
