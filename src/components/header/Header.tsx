@@ -4,7 +4,7 @@ import { IHeaderProps } from '../../interfaces';
 import { style } from './style';
 
 function Header(props: IHeaderProps) {
-  const { title, type } = props;
+  const { title, type, color } = props;
 
   const styleToApply = () => {
     switch (type) {
@@ -20,7 +20,17 @@ function Header(props: IHeaderProps) {
   }
 
   return (
-    <Text style={[style.title, styleToApply()]}>{title}</Text>
+    <Text 
+      style={
+        [
+          style.title,
+          styleToApply(),
+          color ? { color: color } : null, 
+        ]
+      }
+    >
+      {title}
+    </Text>
   )
 }
 

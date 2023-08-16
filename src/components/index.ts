@@ -1,3 +1,4 @@
+export * from './donationItem';
 export * from './header';
 export * from './button';
 export * from './search';
