@@ -1,12 +1,19 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Pressable, TextInput, Image } from 'react-native';
+import { ISearchProps } from '../../interfaces';
 import { style } from './style';
 
-function Search() {
+function Search(props: ISearchProps) {
   const textInputRef = useRef<TextInput>(null);
+  const [search, setSearch] = useState<string>('');
 
   const handleFocus = () => {
     textInputRef.current?.focus();
+  }
+
+  const handleSearch = (searchValue: string) => {
+    setSearch(searchValue);
+    props.onSearch(searchValue);
   }
 
   return (
@@ -18,6 +25,8 @@ function Search() {
       <TextInput 
         ref={textInputRef}
         placeholder='Search'
+        value={search}
+        onChangeText={(value) => handleSearch(value)}
         style={style.searchInput}
       />
     </Pressable>

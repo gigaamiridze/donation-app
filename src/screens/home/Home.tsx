@@ -16,7 +16,7 @@ function Home() {
         <Tab title='Highlight' />
         <Tab title='Lifestyle' isInactive={true} />
         <Badge title='Environment' />
-        <Search />
+        <Search onSearch={(searchValue: string) => console.log(searchValue)} />
       </SafeAreaView>
     </TouchableWithoutFeedback>
   )
