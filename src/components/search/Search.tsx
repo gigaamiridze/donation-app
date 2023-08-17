@@ -4,6 +4,7 @@ import { ISearchProps } from '../../interfaces';
 import { style } from './style';
 
 function Search(props: ISearchProps) {
+  const { placeholder, onSearch } = props;
   const textInputRef = useRef<TextInput>(null);
   const [search, setSearch] = useState<string>('');
 
@@ -13,7 +14,7 @@ function Search(props: ISearchProps) {
 
   const handleSearch = (searchValue: string) => {
     setSearch(searchValue);
-    props.onSearch(searchValue);
+    onSearch(searchValue);
   }
 
   return (
@@ -24,7 +25,7 @@ function Search(props: ISearchProps) {
       <Image source={require('../../assets/images/search-icon.png')} />
       <TextInput 
         ref={textInputRef}
-        placeholder='Search'
+        placeholder={placeholder}
         value={search}
         onChangeText={(value) => handleSearch(value)}
         style={style.searchInput}

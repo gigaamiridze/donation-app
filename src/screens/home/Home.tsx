@@ -2,8 +2,8 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectUserState } from '../../redux';
 import { globalStyle } from '../../assets';
-import { Header } from '../../components';
 import { style } from './style';
+import { Header, Search } from '../../components';
 import { 
   ScrollView, 
   SafeAreaView, 
@@ -39,6 +39,10 @@ function Home() {
               style={style.profileImage}
             />
           </View>
+          <Search 
+            placeholder='Search'
+            onSearch={() => {}}
+          />
         </ScrollView>
       </SafeAreaView>
     </TouchableWithoutFeedback>
