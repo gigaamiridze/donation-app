@@ -1,5 +1,6 @@
-import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import { configureStore, combineReducers, getDefaultMiddleware } from '@reduxjs/toolkit';
 import { persistReducer, persistStore } from 'redux-persist';
+import { logger } from 'redux-logger';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import userReducer from './userSlice';
 
@@ -17,6 +18,11 @@ const persistedReducer = persistReducer(configuration, rootReducer);
 
 const store = configureStore({
   reducer: persistedReducer,
+  middleware: getDefaultMiddleware => {
+    return getDefaultMiddleware({
+      serializableCheck: false,
+    });
+  }
 });
 
 export type RootState = ReturnType<typeof store.getState>;
