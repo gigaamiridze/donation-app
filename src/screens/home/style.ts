@@ -1,11 +1,14 @@
 import { StyleSheet } from 'react-native';
 
 export const style = StyleSheet.create({
+  homeScreenContainer: {
+    flexDirection: 'column',
+    rowGap: 20,
+  },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginBottom: 20,
   },
   headerIntroText: {
     fontFamily: 'Inter',
@@ -19,5 +22,9 @@ export const style = StyleSheet.create({
   profileImage: {
     width: 50,
     height: 50,
+  },
+  highlightedBanner: {
+    width: '100%',
+    height: 160,
   },
 });

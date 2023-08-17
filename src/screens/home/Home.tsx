@@ -11,7 +11,8 @@ import {
   Keyboard, 
   View, 
   Text, 
-  Image 
+  Image,
+  Pressable 
 } from 'react-native';
 
 function Home() {
@@ -24,25 +25,34 @@ function Home() {
       accessible={false}
     >
       <SafeAreaView style={globalStyle.screenContainer}>
-        <ScrollView>
-          <View style={style.header}>
-            <View>
-              <Text style={style.headerIntroText}>Hello,</Text>
-              <Header 
-                title={`${firstName} ${lastName[0]}.👋`}
-                type={1} 
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <View style={style.homeScreenContainer}>
+            <View style={style.header}>
+              <View>
+                <Text style={style.headerIntroText}>Hello,</Text>
+                <Header 
+                  title={`${firstName} ${lastName[0]}.👋`}
+                  type={1} 
+                />
+              </View>
+              <Image 
+                resizeMode='contain'
+                source={require('../../assets/images/profile.png')}
+                style={style.profileImage}
               />
             </View>
-            <Image 
-              resizeMode='contain'
-              source={require('../../assets/images/profile.png')}
-              style={style.profileImage}
+            <Search 
+              placeholder='Search'
+              onSearch={() => {}}
             />
+            <Pressable>
+              <Image 
+                resizeMode='stretch'
+                source={require('../../assets/images/highlighted-banner.png')}
+                style={style.highlightedBanner}
+              />
+            </Pressable>
           </View>
-          <Search 
-            placeholder='Search'
-            onSearch={() => {}}
-          />
         </ScrollView>
       </SafeAreaView>
     </TouchableWithoutFeedback>
