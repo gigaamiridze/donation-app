@@ -1,4 +1,6 @@
-export const categories = [
+import { ICategory }from '../interfaces';
+
+export const categories: ICategory[] = [
   {
     categoryId: 1,
     name: 'Highlight',

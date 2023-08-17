@@ -1,11 +1,12 @@
 import { configureStore, combineReducers, getDefaultMiddleware } from '@reduxjs/toolkit';
 import { persistReducer, persistStore } from 'redux-persist';
+import { userReducer, categoriesReducer } from './slices';
 import { logger } from 'redux-logger';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import userReducer from './userSlice';
 
 const rootReducer = combineReducers({
   user: userReducer,
+  categories: categoriesReducer,
 });
 
 const configuration = {

@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IUserState } from '../interfaces';
-import { RootState } from '../redux';
+import { IUserState } from '../../interfaces';
+import { RootState } from '../../redux';
 
 const initialState: IUserState = {
   id: 1,
@@ -18,10 +18,13 @@ const userSlice = createSlice({
     setLastName: (state, action: PayloadAction<string>) => {
       state.lastName = action.payload;
     },
+    resetUserState: () => {
+      return initialState;
+    },
   },
 });
 
 export const selectUserState = (state: RootState) => state.user; 
-export const { setFirstName, setLastName } = userSlice.actions;
+export const { setFirstName, setLastName, resetUserState } = userSlice.actions;
 
 export default userSlice.reducer;
