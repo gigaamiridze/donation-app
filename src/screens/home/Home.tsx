@@ -1,9 +1,18 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { SafeAreaView, TouchableWithoutFeedback, Keyboard, Text } from 'react-native';
-import { selectUserState, setFirstName } from '../../redux';
+import { selectUserState } from '../../redux';
 import { globalStyle } from '../../assets';
 import { Header } from '../../components';
+import { style } from './style';
+import { 
+  ScrollView, 
+  SafeAreaView, 
+  TouchableWithoutFeedback, 
+  Keyboard, 
+  View, 
+  Text, 
+  Image 
+} from 'react-native';
 
 function Home() {
   const { firstName, lastName } = useSelector(selectUserState);
@@ -14,9 +23,23 @@ function Home() {
       onPress={Keyboard.dismiss}
       accessible={false}
     >
-      <SafeAreaView style={[globalStyle.backgroundWhite, globalStyle.flex]}>
-        <Header title={`${firstName} ${lastName}`} type={2} />
-        <Text onPress={() => dispatch(setFirstName('G'))}>Update First Name</Text>
+      <SafeAreaView style={globalStyle.screenContainer}>
+        <ScrollView>
+          <View style={style.header}>
+            <View>
+              <Text style={style.headerIntroText}>Hello,</Text>
+              <Header 
+                title={`${firstName} ${lastName[0]}.👋`}
+                type={1} 
+              />
+            </View>
+            <Image 
+              resizeMode='contain'
+              source={require('../../assets/images/profile.png')}
+              style={style.profileImage}
+            />
+          </View>
+        </ScrollView>
       </SafeAreaView>
     </TouchableWithoutFeedback>
   )

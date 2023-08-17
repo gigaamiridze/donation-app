@@ -7,4 +7,10 @@ export const globalStyle = StyleSheet.create({
   flex: {
     flex: 1,
   },
+  screenContainer: {
+    flex: 1,
+    paddingTop: 20,
+    paddingHorizontal: 24,
+    backgroundColor: '#FFFFFF',
+  },
 });
