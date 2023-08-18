@@ -27,4 +27,11 @@ export const style = StyleSheet.create({
     width: '100%',
     height: 160,
   },
+  categories: {
+    flexDirection: 'column',
+    rowGap: 16,
+  },
+  categoryItem: {
+    marginRight: 10,
+  },
 });
