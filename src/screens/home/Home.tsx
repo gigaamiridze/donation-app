@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Header, Search, Tab } from '../../components';
+import { ICategory } from '../../interfaces';
 import { globalStyle } from '../../assets';
 import { style } from './style';
 import { 
@@ -24,6 +25,26 @@ function Home() {
   const { firstName, lastName } = useSelector(selectUserState);
   const { categories, selectedCategoryId } = useSelector(selectCategoriesState);
   const dispatch = useDispatch();
+  const [categoryPage, setCategoryPage] = useState<number>(1);
+  const [categoryList, setCategoryList] = useState<ICategory[]>([]);
+  const [isLoadingCategories, setIsLoadingCategories] = useState<boolean>(false);
+  const categoryPageSize = 4;
+
+  useEffect(() => {
+    setIsLoadingCategories(true);
+    setCategoryList(pagination(categories, categoryPage, categoryPageSize));
+    setCategoryPage(prev => prev + 1);
+    setIsLoadingCategories(false);
+  }, []);
+
+  const pagination = (items: ICategory[], pageNumber: number, pageSize: number) => {
+    const startIndex = (pageNumber - 1) * pageSize;
+    const endIndex = startIndex + pageSize;
+    if (startIndex >= items.length) {
+      return [];
+    }
+    return items.slice(startIndex, endIndex);
+  };
 
   return (
     <TouchableWithoutFeedback
@@ -63,13 +84,24 @@ function Home() {
             <View style={style.categories}>
               <Header title='Select Category' type={2} />
               <FlatList 
+                onEndReachedThreshold={0.5}
+                onEndReached={() => {
+                  if (isLoadingCategories) return true;
+                  setIsLoadingCategories(true);
+                  let newData = pagination(categories, categoryPage, categoryPageSize);
+                  if (newData.length > 0) {
+                    setCategoryList(prevState => [...prevState, ...newData]);
+                    setCategoryPage(prevState => prevState + 1);
+                  }
+                  setIsLoadingCategories(false);
+                }}
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
-                data={categories}
+                data={categoryList}
                 renderItem={({ item, index }) => (
                   <View
                     key={item.categoryId} 
-                    style={!(index === categories.length - 1) && style.categoryItem}
+                    style={style.categoryItem}
                   >
                     <Tab 
                       tabId={item.categoryId}
