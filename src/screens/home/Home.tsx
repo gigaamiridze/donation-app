@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Header, Search, Tab, DonationItem } from '../../components';
 import { ICategory, IDonation } from '../../interfaces';
-import { Header, Search, Tab } from '../../components';
 import { globalStyle } from '../../assets';
 import { style } from './style';
 import { 
@@ -122,6 +122,23 @@ function Home() {
                 )}
               />
             </View>
+            {donationItems.length > 0 && (
+              <View style={globalStyle.paddingHorizontal}>
+                {donationItems.map(item => (
+                  <DonationItem 
+                    key={item.donationItemId}
+                    uri={item.image}
+                    badgeTitle={
+                      categories.filter(
+                        item => item.categoryId === selectedCategoryId,
+                      )[0].name
+                    }
+                    donationTitle={item.name}
+                    price={parseFloat(item.price)}
+                  />
+                ))}
+              </View>
+            )}
           </View>
         </ScrollView>
       </SafeAreaView>

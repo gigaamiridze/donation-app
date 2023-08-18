@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image } from 'react-native';
+import { Pressable, View, Image } from 'react-native';
 import { Badge, Header } from '../../components';
 import { IDonationItemProps } from '../../interfaces';
 import { style } from './style';
@@ -8,13 +8,13 @@ function DonationItem(props: IDonationItemProps) {
   const { uri, badgeTitle, donationTitle, price } = props;
 
   return (
-    <View>
+    <Pressable>
       <View>
         <View style={style.badge}>
           <Badge title={badgeTitle} />
         </View>
         <Image 
-          resizeMode='contain'
+          resizeMode='cover'
           source={{ uri: uri }}
           style={style.image}
         />
@@ -27,7 +27,7 @@ function DonationItem(props: IDonationItemProps) {
           color='#156CF7' 
         />
       </View>
-    </View>
+    </Pressable>
   )
 }
 
