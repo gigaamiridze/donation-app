@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { ICategory, IDonation } from '../../interfaces';
 import { Header, Search, Tab } from '../../components';
-import { ICategory } from '../../interfaces';
 import { globalStyle } from '../../assets';
 import { style } from './style';
 import { 
   selectUserState, 
-  selectCategoriesState, 
+  selectCategoriesState,
+  selectDonationsState, 
   updateSelectedCategoryId 
 } from '../../redux';
 import { 
@@ -24,7 +25,9 @@ import {
 function Home() {
   const { firstName, lastName } = useSelector(selectUserState);
   const { categories, selectedCategoryId } = useSelector(selectCategoriesState);
+  const { donations } = useSelector(selectDonationsState);
   const dispatch = useDispatch();
+  const [donationItems, setDonationItems] = useState<IDonation[]>([]);
   const [categoryPage, setCategoryPage] = useState<number>(1);
   const [categoryList, setCategoryList] = useState<ICategory[]>([]);
   const [isLoadingCategories, setIsLoadingCategories] = useState<boolean>(false);
@@ -36,6 +39,11 @@ function Home() {
     setCategoryPage(prev => prev + 1);
     setIsLoadingCategories(false);
   }, []);
+
+  useEffect(() => {
+    const filteredDonations = donations.filter(item => item.categoryIds.includes(selectedCategoryId));
+    setDonationItems(filteredDonations);
+  }, [selectedCategoryId]);
 
   const pagination = (items: ICategory[], pageNumber: number, pageSize: number) => {
     const startIndex = (pageNumber - 1) * pageSize;
