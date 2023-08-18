@@ -12,16 +12,16 @@ const categoriesSlice = createSlice({
   name: 'categories',
   initialState,
   reducers: {
-    updateSelectedCategoryId: (state, action: PayloadAction<number>) => {
-      state.selectedCategoryId = action.payload;
-    },
     resetCategories: () => {
       return initialState;
+    },
+    updateSelectedCategoryId: (state, action: PayloadAction<number>) => {
+      state.selectedCategoryId = action.payload;
     },
   },
 });
 
 export const selectCategoriesState = (state: RootState) => state.categories;
-export const { updateSelectedCategoryId, resetCategories } = categoriesSlice.actions;
+export const { resetCategories, updateSelectedCategoryId } = categoriesSlice.actions;
 
 export default categoriesSlice.reducer;

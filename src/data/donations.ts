@@ -1,4 +1,6 @@
-export const donationItems = [
+import { IDonation } from '../interfaces';
+
+export const donations: IDonation[] = [
   {
     name: 'Solar-powered lantern',
     description:

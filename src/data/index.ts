@@ -1,2 +1,2 @@
-export * from './donationItems';
 export * from './categories';
+export * from './donations';
