@@ -1,9 +1,13 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectUserState, selectCategoriesState } from '../../redux';
+import { Header, Search, Tab } from '../../components';
 import { globalStyle } from '../../assets';
 import { style } from './style';
-import { Header, Search, Tab } from '../../components';
+import { 
+  selectUserState, 
+  selectCategoriesState, 
+  updateSelectedCategoryId 
+} from '../../redux';
 import { 
   ScrollView, 
   SafeAreaView, 
@@ -61,10 +65,15 @@ function Home() {
                 showsHorizontalScrollIndicator={false}
                 data={categories}
                 renderItem={({ item, index }) => (
-                  <View style={!(index === categories.length - 1) && style.categoryItem}>
+                  <View
+                    key={item.categoryId} 
+                    style={!(index === categories.length - 1) && style.categoryItem}
+                  >
                     <Tab 
+                      tabId={item.categoryId}
                       title={item.name} 
                       isInactive={item.categoryId !== selectedCategoryId} 
+                      onPress={(value) => dispatch(updateSelectedCategoryId(value))}
                     />
                   </View>
                 )}

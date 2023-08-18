@@ -4,7 +4,7 @@ import { ITabProps } from '../../interfaces';
 import { style } from './style';
 
 function Tab(props: ITabProps) {
-  const { title, isInactive } = props;
+  const { tabId, title, isInactive, onPress } = props;
   const [width, setWidth] = useState<number>(0);
   const textRef = useRef<Text>(null);
   const paddingHorizontal = 33;
@@ -15,6 +15,7 @@ function Tab(props: ITabProps) {
   return (
     <Pressable 
       disabled={isInactive}
+      onPress={() => onPress(tabId)}
       style={[style.tab, isInactive && style.inactiveTab, tabWidth]}
     >
       <Text 
