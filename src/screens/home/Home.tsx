@@ -30,10 +30,10 @@ function Home() {
       onPress={Keyboard.dismiss}
       accessible={false}
     >
-      <SafeAreaView style={globalStyle.screenContainer}>
+      <SafeAreaView style={[globalStyle.flex, globalStyle.backgroundWhite]}>
         <ScrollView showsVerticalScrollIndicator={false}>
           <View style={style.homeScreenContainer}>
-            <View style={style.header}>
+            <View style={[style.header, globalStyle.paddingHorizontal]}>
               <View>
                 <Text style={style.headerIntroText}>Hello,</Text>
                 <Header 
@@ -47,11 +47,13 @@ function Home() {
                 style={style.profileImage}
               />
             </View>
-            <Search 
-              placeholder='Search'
-              onSearch={() => {}}
-            />
-            <Pressable>
+            <View style={globalStyle.paddingHorizontal}>
+              <Search 
+                placeholder='Search'
+                onSearch={() => {}}
+              />
+            </View>
+            <Pressable style={globalStyle.paddingHorizontal}>
               <Image 
                 resizeMode='stretch'
                 source={require('../../assets/images/highlighted-banner.png')}

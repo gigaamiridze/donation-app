@@ -4,6 +4,7 @@ export const style = StyleSheet.create({
   homeScreenContainer: {
     flexDirection: 'column',
     rowGap: 20,
+    paddingTop: 20,
   },
   header: {
     flexDirection: 'row',
@@ -30,6 +31,7 @@ export const style = StyleSheet.create({
   categories: {
     flexDirection: 'column',
     rowGap: 16,
+    paddingLeft: 24,
   },
   categoryItem: {
     marginRight: 10,

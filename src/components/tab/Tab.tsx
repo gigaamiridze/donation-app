@@ -14,7 +14,6 @@ function Tab(props: ITabProps) {
 
   return (
     <Pressable 
-      disabled={isInactive}
       onPress={() => onPress(tabId)}
       style={[style.tab, isInactive && style.inactiveTab, tabWidth]}
     >

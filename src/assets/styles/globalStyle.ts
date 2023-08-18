@@ -7,6 +7,9 @@ export const globalStyle = StyleSheet.create({
   flex: {
     flex: 1,
   },
+  paddingHorizontal: {
+    paddingHorizontal: 24,
+  },
   screenContainer: {
     flex: 1,
     paddingTop: 20,
