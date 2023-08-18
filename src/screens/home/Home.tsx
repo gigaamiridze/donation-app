@@ -98,6 +98,7 @@ function Home() {
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
                 data={categoryList}
+                keyExtractor={(item) => item.categoryId.toString()}
                 renderItem={({ item, index }) => (
                   <View
                     key={item.categoryId} 
