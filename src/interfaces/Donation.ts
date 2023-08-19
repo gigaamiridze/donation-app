@@ -16,7 +16,7 @@ export interface IDonationsState {
 export interface IDonationItemProps {
   donationItemId: number;
   uri: string;
-  badgeTitle: string;
+  badgeTitle: string | undefined;
   donationTitle: string;
   price: number;
   onPress: (donationItemId: number) => void;

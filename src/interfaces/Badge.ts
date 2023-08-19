@@ -1,3 +1,3 @@
 export interface IBadgeProps {
-  title: string;
+  title: string | undefined;
 }
