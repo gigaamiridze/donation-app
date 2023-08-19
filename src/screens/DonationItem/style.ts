@@ -8,4 +8,8 @@ export const style = StyleSheet.create({
     marginBottom: 24,
     borderRadius: 5,
   },
+  title: {
+    marginTop: 16,
+    marginBottom: 7,
+  },
 });
