@@ -22,4 +22,7 @@ export const style = StyleSheet.create({
     marginBottom: 10,
     paddingHorizontal: 7,
   },
+  button: {
+    paddingBottom: 20,
+  },
 });

@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { IDonationScreenParams } from '../../interfaces';
 import { selectDonationsState } from '../../redux';
 import { globalStyle } from '../../assets';
-import { BackButton, Badge, Header } from '../../components';
+import { BackButton, Badge, Header, Button } from '../../components';
 import { style } from './style';
 
 function DonationItem() {
@@ -29,6 +29,9 @@ function DonationItem() {
         </View>
         <Text style={style.description}>{selectedDonationInformation?.description}</Text>
       </ScrollView>
+      <View style={style.button}>
+        <Button title='Donate' />
+      </View>
     </SafeAreaView>
   )
 }
