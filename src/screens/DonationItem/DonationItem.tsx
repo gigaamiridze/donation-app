@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
-import { SafeAreaView, ScrollView, Image, View } from 'react-native';
+import { SafeAreaView, ScrollView, Image, View, Text } from 'react-native';
 import { useSelector } from 'react-redux';
 import { IDonationScreenParams } from '../../interfaces';
 import { selectDonationsState } from '../../redux';
@@ -27,6 +27,7 @@ function DonationItem() {
         <View style={style.title}>
           <Header title={selectedDonationInformation?.name} type={1} />
         </View>
+        <Text style={style.description}>{selectedDonationInformation?.description}</Text>
       </ScrollView>
     </SafeAreaView>
   )

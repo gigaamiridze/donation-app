@@ -12,4 +12,14 @@ export const style = StyleSheet.create({
     marginTop: 16,
     marginBottom: 7,
   },
+  description: {
+    fontFamily: 'Inter',
+    fontWeight: '400',
+    fontSize: 14,
+    lineHeight: 20,
+    letterSpacing: 0.5,
+    color: '#000000',
+    marginBottom: 10,
+    paddingHorizontal: 7,
+  },
 });
