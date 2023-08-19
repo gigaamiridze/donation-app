@@ -1,6 +1,6 @@
 import React from 'react';
 import { Pressable, View, Image } from 'react-native';
-import { Badge, Header } from '../../components';
+import { Badge, Header } from '..';
 import { IDonationItemProps } from '../../interfaces';
 import { style } from './style';
 
@@ -8,7 +8,7 @@ function DonationItem(props: IDonationItemProps) {
   const { uri, badgeTitle, donationTitle, price } = props;
 
   return (
-    <Pressable>
+    <Pressable style={style.donationItem}>
       <View>
         <View style={style.badge}>
           <Badge title={badgeTitle} />
@@ -20,7 +20,7 @@ function DonationItem(props: IDonationItemProps) {
         />
       </View>
       <View style={style.donationInfo}>
-        <Header title={donationTitle} type={3} />
+        <Header title={donationTitle} type={3} numberOfLines={1} />
         <Header 
           title={`$${price.toFixed(2)}`} 
           type={3} 
