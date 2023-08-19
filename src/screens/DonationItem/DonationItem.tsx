@@ -1,7 +1,8 @@
 import React from 'react';
-import { useNavigation, useRoute } from '@react-navigation/native';
+import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import { SafeAreaView, ScrollView, Image, View } from 'react-native';
 import { useSelector } from 'react-redux';
+import { IDonationScreenParams } from '../../interfaces';
 import { selectDonationsState } from '../../redux';
 import { globalStyle } from '../../assets';
 import { BackButton, Badge, Header } from '../../components';
@@ -9,8 +10,8 @@ import { style } from './style';
 
 function DonationItem() {
   const { selectedDonationInformation } = useSelector(selectDonationsState);
-  const navigation = useNavigation();
-  const route = useRoute();
+  const navigation = useNavigation();  
+  const route = useRoute<RouteProp<Record<string, IDonationScreenParams>, string>>();
   const { categoryInformation } = route.params;
 
   return (

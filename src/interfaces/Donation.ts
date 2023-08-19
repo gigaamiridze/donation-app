@@ -1,3 +1,5 @@
+import { ICategory } from './Category';
+
 export interface IDonation {
   name: string;
   description: string;
@@ -20,4 +22,8 @@ export interface IDonationItemProps {
   donationTitle: string;
   price: number;
   onPress: (donationItemId: number) => void;
+}
+
+export interface IDonationScreenParams {
+  categoryInformation: ICategory;
 }
