@@ -10,11 +10,14 @@ export interface IDonation {
 export interface IDonationsState {
   donations: IDonation[];
   selectedDonationId: number | null;
+  selectedDonationInformation: IDonation | null | undefined;
 }
 
 export interface IDonationItemProps {
+  donationItemId: number;
   uri: string;
   badgeTitle: string;
   donationTitle: string;
   price: number;
+  onPress: (donationItemId: number) => void;
 }

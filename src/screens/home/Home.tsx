@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigation } from '@react-navigation/native';
 import { Header, Search, Tab, DonationItem } from '../../components';
 import { ICategory, IDonation } from '../../interfaces';
 import { globalStyle } from '../../assets';
+import { Routes } from '../../constants';
 import { style } from './style';
 import { 
   selectUserState, 
   selectCategoriesState,
   selectDonationsState, 
-  updateSelectedCategoryId 
+  updateSelectedCategoryId,
+  updateSelectedDonationId,
+  updateSelectedDonationInformation 
 } from '../../redux';
 import { 
   ScrollView, 
@@ -27,6 +31,7 @@ function Home() {
   const { categories, selectedCategoryId } = useSelector(selectCategoriesState);
   const { donations } = useSelector(selectDonationsState);
   const dispatch = useDispatch();
+  const navigation = useNavigation();
   const [donationItems, setDonationItems] = useState<IDonation[]>([]);
   const [categoryPage, setCategoryPage] = useState<number>(1);
   const [categoryList, setCategoryList] = useState<ICategory[]>([]);
@@ -123,10 +128,11 @@ function Home() {
               />
             </View>
             {donationItems.length > 0 && (
-              <View style={globalStyle.paddingHorizontal}>
+              <View style={[style.donationItemsContainer, globalStyle.paddingHorizontal]}>
                 {donationItems.map(item => (
                   <DonationItem 
                     key={item.donationItemId}
+                    donationItemId={item.donationItemId}
                     uri={item.image}
                     badgeTitle={
                       categories.filter(
@@ -135,6 +141,11 @@ function Home() {
                     }
                     donationTitle={item.name}
                     price={parseFloat(item.price)}
+                    onPress={donationItemId => {
+                      dispatch(updateSelectedDonationId(donationItemId));
+                      dispatch(updateSelectedDonationInformation(donationItemId));
+                      navigation.navigate(Routes.DONATION_ITEM);
+                    }}
                   />
                 ))}
               </View>

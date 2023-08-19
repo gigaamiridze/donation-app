@@ -4,7 +4,7 @@ export const style = StyleSheet.create({
   homeScreenContainer: {
     flexDirection: 'column',
     rowGap: 20,
-    paddingTop: 20,
+    paddingVertical: 20,
   },
   header: {
     flexDirection: 'row',
@@ -35,5 +35,12 @@ export const style = StyleSheet.create({
   },
   categoryItem: {
     marginRight: 10,
+  },
+  donationItemsContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    columnGap: 17,
+    rowGap: 23,
   },
 });
