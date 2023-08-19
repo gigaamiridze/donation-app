@@ -4,7 +4,7 @@ import { IHeaderProps } from '../../interfaces';
 import { style } from './style';
 
 function Header(props: IHeaderProps) {
-  const { title, type, color } = props;
+  const { title, type, color, numberOfLines } = props;
 
   const styleToApply = () => {
     switch (type) {
@@ -21,6 +21,7 @@ function Header(props: IHeaderProps) {
 
   return (
     <Text 
+      numberOfLines={numberOfLines && numberOfLines}
       style={
         [
           style.title,

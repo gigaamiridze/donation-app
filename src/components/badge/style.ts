@@ -12,7 +12,7 @@ export const style = StyleSheet.create({
     fontSize: 10,
     fontWeight: '600',
     lineHeight: 12,
-    letterSpacing: 1,
+    letterSpacing: 0.5,
     color: '#FFFFFF',
     textAlign: 'center',
   },

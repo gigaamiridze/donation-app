@@ -5,10 +5,13 @@ import { IDonationItemProps } from '../../interfaces';
 import { style } from './style';
 
 function DonationItem(props: IDonationItemProps) {
-  const { uri, badgeTitle, donationTitle, price } = props;
+  const { donationItemId, uri, badgeTitle, donationTitle, price, onPress } = props;
 
   return (
-    <Pressable style={style.donationItem}>
+    <Pressable 
+      style={style.donationItem}
+      onPress={() => onPress(donationItemId)}
+    >
       <View>
         <View style={style.badge}>
           <Badge title={badgeTitle} />

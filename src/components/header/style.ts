@@ -5,7 +5,7 @@ export const style = StyleSheet.create({
     fontFamily: 'Inter',
     fontWeight: '700',
     color: '#0A043C',
-    letterSpacing: 1,
+    letterSpacing: 0.5,
   },
   title1: {
     fontSize: 24,

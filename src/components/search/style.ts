@@ -16,6 +16,6 @@ export const style = StyleSheet.create({
     fontFamily: 'Inter',
     fontSize: 14,
     lineHeight: 14,
-    letterSpacing: 1,
+    letterSpacing: 0.5,
   },
 });

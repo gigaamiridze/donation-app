@@ -1,8 +1,11 @@
 import { StyleSheet } from 'react-native';
 
 export const style = StyleSheet.create({
+  donationItem: {
+    width: '47%',
+  },
   image: {
-    width: 155,
+    width: '100%',
     height: 170,
     borderRadius: 20,
   },
