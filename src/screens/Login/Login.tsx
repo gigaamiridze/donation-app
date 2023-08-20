@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { SafeAreaView, ScrollView } from 'react-native';
+import { SafeAreaView, ScrollView, View, Pressable } from 'react-native';
 import { globalStyle } from '../../assets';
-import { Header, Input } from '../../components';
+import { Header, Input, Button } from '../../components';
 import { style } from './style';
 
 function Login() {
@@ -27,6 +27,12 @@ function Login() {
           secureTextEntry={true}
           onChangeText={value => setPassword(value)}
         />
+        <View style={style.loginButton}>
+          <Button title='Login' />
+        </View>
+        <Pressable style={style.registrationButton}>
+          <Header title='Don’t have an account?' type={3} color='#156CF7' />
+        </Pressable>
       </ScrollView>
     </SafeAreaView>
   )

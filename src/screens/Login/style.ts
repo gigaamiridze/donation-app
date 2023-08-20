@@ -6,4 +6,10 @@ export const style = StyleSheet.create({
     justifyContent: 'center',
     rowGap: 24,
   },
+  loginButton: {
+    marginTop: 13,
+  },
+  registrationButton: {
+    alignItems: 'center',
+  },
 });
