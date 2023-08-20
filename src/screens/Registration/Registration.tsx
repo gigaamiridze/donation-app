@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { SafeAreaView, ScrollView, Text } from 'react-native';
+import { SafeAreaView, ScrollView, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { BackButton, Header, Input } from '../../components';
+import { BackButton, Header, Input, Button } from '../../components';
 import { globalStyle } from '../../assets';
 import { style } from './style';
 
@@ -36,6 +36,9 @@ function Registration() {
           secureTextEntry={true}
           onChangeText={value => setPassword(value)}
         />
+        <View style={style.registrationButton}>
+          <Button title='Register' />
+        </View>
       </ScrollView>
     </SafeAreaView>
   )
