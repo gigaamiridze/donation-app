@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { SafeAreaView, ScrollView, View, Pressable } from 'react-native';
-import { globalStyle } from '../../assets';
+import { useNavigation } from '@react-navigation/native';
 import { Header, Input, Button } from '../../components';
+import { globalStyle } from '../../assets';
+import { Routes } from '../../constants';
 import { style } from './style';
 
 function Login() {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const navigation = useNavigation();
 
   return (
     <SafeAreaView style={globalStyle.screenContainer}>
@@ -30,7 +33,10 @@ function Login() {
         <View style={style.loginButton}>
           <Button title='Login' />
         </View>
-        <Pressable style={style.registrationButton}>
+        <Pressable 
+          style={style.registrationButton}
+          onPress={() => navigation.navigate(Routes.REGISTRATION)}
+        >
           <Header title='Don’t have an account?' type={3} color='#156CF7' />
         </Pressable>
       </ScrollView>
