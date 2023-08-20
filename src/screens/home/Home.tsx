@@ -6,21 +6,21 @@ import { ICategory, IDonation } from '../../interfaces';
 import { globalStyle } from '../../assets';
 import { Routes } from '../../constants';
 import { style } from './style';
-import { 
-  selectUserState, 
+import {
+  selectUserState,
   selectCategoriesState,
-  selectDonationsState, 
+  selectDonationsState,
   updateSelectedCategoryId,
   updateSelectedDonationId,
-  updateSelectedDonationInformation 
+  updateSelectedDonationInformation
 } from '../../redux';
-import { 
-  ScrollView, 
-  SafeAreaView, 
-  TouchableWithoutFeedback, 
-  Keyboard, 
-  View, 
-  Text, 
+import {
+  ScrollView,
+  SafeAreaView,
+  TouchableWithoutFeedback,
+  Keyboard,
+  View,
+  Text,
   Image,
   Pressable,
   FlatList
@@ -70,25 +70,25 @@ function Home() {
             <View style={[style.header, globalStyle.paddingHorizontal]}>
               <View>
                 <Text style={style.headerIntroText}>Hello,</Text>
-                <Header 
+                <Header
                   title={`${firstName} ${lastName[0]}.👋`}
-                  type={1} 
+                  type={1}
                 />
               </View>
-              <Image 
+              <Image
                 resizeMode='contain'
                 source={require('../../assets/images/profile.png')}
                 style={style.profileImage}
               />
             </View>
             <View style={globalStyle.paddingHorizontal}>
-              <Search 
+              <Search
                 placeholder='Search'
-                onSearch={() => {}}
+                onSearch={() => { }}
               />
             </View>
             <Pressable style={globalStyle.paddingHorizontal}>
-              <Image 
+              <Image
                 resizeMode='stretch'
                 source={require('../../assets/images/highlighted-banner.png')}
                 style={style.highlightedBanner}
@@ -96,7 +96,7 @@ function Home() {
             </Pressable>
             <View style={style.categories}>
               <Header title='Select Category' type={2} />
-              <FlatList 
+              <FlatList
                 onEndReachedThreshold={0.5}
                 onEndReached={() => {
                   if (isLoadingCategories) return true;
@@ -114,13 +114,13 @@ function Home() {
                 keyExtractor={(item) => item.categoryId.toString()}
                 renderItem={({ item, index }) => (
                   <View
-                    key={item.categoryId} 
+                    key={item.categoryId}
                     style={style.categoryItem}
                   >
-                    <Tab 
+                    <Tab
                       tabId={item.categoryId}
-                      title={item.name} 
-                      isInactive={item.categoryId !== selectedCategoryId} 
+                      title={item.name}
+                      isInactive={item.categoryId !== selectedCategoryId}
                       onPress={(value) => dispatch(updateSelectedCategoryId(value))}
                     />
                   </View>
@@ -129,25 +129,27 @@ function Home() {
             </View>
             {donationItems.length > 0 && (
               <View style={[style.donationItemsContainer, globalStyle.paddingHorizontal]}>
-                {donationItems.map(item => (
-                  <DonationItem 
-                    key={item.donationItemId}
-                    donationItemId={item.donationItemId}
-                    uri={item.image}
-                    badgeTitle={
-                      categories.filter(
-                        item => item.categoryId === selectedCategoryId,
-                      )[0].name
-                    }
-                    donationTitle={item.name}
-                    price={parseFloat(item.price)}
-                    onPress={donationItemId => {
-                      dispatch(updateSelectedDonationId(donationItemId));
-                      dispatch(updateSelectedDonationInformation(donationItemId));
-                      navigation.navigate(Routes.DONATION_ITEM);
-                    }}
-                  />
-                ))}
+                {donationItems.map(item => {
+                  const categoryInformation = categories.find(
+                    item => item.categoryId === selectedCategoryId,
+                  );
+
+                  return (
+                    <DonationItem
+                      key={item.donationItemId}
+                      donationItemId={item.donationItemId}
+                      uri={item.image}
+                      badgeTitle={categoryInformation?.name}
+                      donationTitle={item.name}
+                      price={parseFloat(item.price)}
+                      onPress={donationItemId => {
+                        dispatch(updateSelectedDonationId(donationItemId));
+                        dispatch(updateSelectedDonationInformation(donationItemId));
+                        navigation.navigate(Routes.DONATION_ITEM, { categoryInformation });
+                      }}
+                    />
+                  )
+                })}
               </View>
             )}
           </View>
