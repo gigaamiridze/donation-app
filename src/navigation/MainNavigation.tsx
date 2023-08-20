@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Home, Login, DonationItem } from '../screens';
+import { Home, Login, Registration, DonationItem } from '../screens';
 import { Routes } from '../constants';
 
 const Stack = createStackNavigator();
@@ -13,6 +13,7 @@ function MainNavigation() {
     >
       <Stack.Screen name={Routes.HOME} component={Home} />
       <Stack.Screen name={Routes.LOGIN} component={Login} />
+      <Stack.Screen name={Routes.REGISTRATION} component={Registration} />
       <Stack.Screen name={Routes.DONATION_ITEM} component={DonationItem} />
     </Stack.Navigator>
   )
