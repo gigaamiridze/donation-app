@@ -3,6 +3,7 @@ import { SafeAreaView, ScrollView, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { BackButton, Header, Input, Button } from '../../components';
 import { globalStyle } from '../../assets';
+import { createUser } from '../../../api';
 import { style } from './style';
 
 function Registration() {
@@ -37,7 +38,10 @@ function Registration() {
           onChangeText={value => setPassword(value)}
         />
         <View style={style.registrationButton}>
-          <Button title='Register' />
+          <Button 
+            title='Register' 
+            onPress={async () => await createUser(fullName, email, password)}
+          />
         </View>
       </ScrollView>
     </SafeAreaView>
