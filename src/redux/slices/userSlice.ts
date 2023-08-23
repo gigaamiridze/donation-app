@@ -1,11 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IUserState } from '../../interfaces';
+import { IUserState, IUserData } from '../../interfaces';
 import { RootState } from '../../redux';
 
 const initialState: IUserState = {
-  id: 1,
-  firstName: 'Giga',
-  lastName: 'Amiridze',
+  displayName: null,
+  email: null,
+  isLoggedIn: false,
+  token: null,
 };
 
 const userSlice = createSlice({
@@ -15,16 +16,13 @@ const userSlice = createSlice({
     resetUser: () => {
       return initialState;
     },
-    setFirstName: (state, action: PayloadAction<string>) => {
-      state.firstName = action.payload;
-    },
-    setLastName: (state, action: PayloadAction<string>) => {
-      state.lastName = action.payload;
+    logIn: (state, action: PayloadAction<IUserData>) => {
+      return {...state, ...{isLoggedIn: true}, ...action.payload};
     },
   },
 });
 
 export const selectUserState = (state: RootState) => state.user; 
-export const { resetUser, setFirstName, setLastName } = userSlice.actions;
+export const { resetUser, logIn } = userSlice.actions;
 
 export default userSlice.reducer;

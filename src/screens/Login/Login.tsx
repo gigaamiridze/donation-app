@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { SafeAreaView, ScrollView, View, Pressable, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Header, Input, Button } from '../../components';
 import { globalStyle } from '../../assets';
 import { Routes } from '../../constants';
 import { signIn } from '../../../api';
+import { logIn } from '../../redux';
 import { style } from './style';
 
 function Login() {
@@ -12,6 +14,7 @@ function Login() {
   const [password, setPassword] = useState<string>('');
   const [error, setError] = useState<string | undefined>('');
   const navigation = useNavigation();
+  const dispatch = useDispatch();
 
   return (
     <SafeAreaView style={globalStyle.screenContainer}>
@@ -40,6 +43,9 @@ function Login() {
             onPress={async () => {
               const result = await signIn(email, password);
               if (result.status) {
+                if (result.data) {
+                  dispatch(logIn(result.data));
+                }
                 navigation.navigate(Routes.HOME);
               } else {
                 setError(result.error);
