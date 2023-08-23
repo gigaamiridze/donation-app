@@ -9,4 +9,16 @@ export const style = StyleSheet.create({
   registrationButton: {
     marginTop: 13,
   },
+  success: {
+    fontFamily: 'Inter',
+    fontWeight: '400',
+    fontSize: 16,
+    color: '#28a745',
+  },
+  error: {
+    fontFamily: 'Inter',
+    fontWeight: '400',
+    fontSize: 16,
+    color: '#FF0000',
+  },
 });
