@@ -10,7 +10,7 @@ function Registration() {
   const [fullName, setFullName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const [success, setSuccess] = useState<string>('');
+  const [success, setSuccess] = useState<string | undefined>('');
   const [error, setError] = useState<string | undefined>('');
   const navigation = useNavigation();
 
@@ -40,16 +40,16 @@ function Registration() {
           onChangeText={value => setPassword(value)}
         />
         {error && error.length > 0 && <Text style={style.error}>{error}</Text>}
-        {success.length > 0 && <Text style={style.success}>{success}</Text>}
+        {success && success.length > 0 && <Text style={style.success}>{success}</Text>}
         <View style={style.registrationButton}>
           <Button 
             title='Register' 
-            isDisabled={fullName.length <= 5 || email.length <= 5 || password.length <= 8}
+            isDisabled={fullName.length < 5 || email.length < 5 || password.length < 8}
             onPress={async () => {
               const result = await signUp(fullName, email, password);
-              if (result.success) {
+              if (result.status) {
                 setError('');
-                setSuccess('You have successfully registered.')
+                setSuccess(result.success);
                 setTimeout(() => navigation.goBack(), 3000);
               } else {
                 setError(result.error);
