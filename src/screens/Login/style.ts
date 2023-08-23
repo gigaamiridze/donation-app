@@ -12,4 +12,10 @@ export const style = StyleSheet.create({
   registrationButton: {
     alignItems: 'center',
   },
+  error: {
+    fontFamily: 'Inter',
+    fontWeight: '400',
+    fontSize: 16,
+    color: '#FF0000',
+  },
 });
