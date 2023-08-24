@@ -6,7 +6,7 @@ const initialState: IUserState = {
   displayName: null,
   email: null,
   isLoggedIn: false,
-  token: null,
+  token: undefined,
 };
 
 const userSlice = createSlice({
@@ -19,10 +19,13 @@ const userSlice = createSlice({
     logIn: (state, action: PayloadAction<IUserData>) => {
       return {...state, ...{isLoggedIn: true}, ...action.payload};
     },
+    updateToken: (state, action: PayloadAction<Promise<string> | undefined>) => {
+      state.token = action.payload;
+    },
   },
 });
 
 export const selectUserState = (state: RootState) => state.user; 
-export const { resetUser, logIn } = userSlice.actions;
+export const { resetUser, logIn, updateToken } = userSlice.actions;
 
 export default userSlice.reducer;

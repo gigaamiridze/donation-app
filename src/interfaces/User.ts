@@ -5,5 +5,5 @@ export interface IUserState extends IUserData {
 export interface IUserData {
   displayName: string | null;
   email: string | null;
-  token: Promise<string> | null;
+  token: Promise<string> | undefined;
 }
