@@ -5,6 +5,8 @@ import { Header, Search, Tab, DonationItem } from '../../components';
 import { ICategory, IDonation } from '../../interfaces';
 import { globalStyle } from '../../assets';
 import { Routes } from '../../constants';
+import { resetUser } from '../../redux';
+import { signOut } from '../../../api';
 import { style } from './style';
 import {
   selectUserState,
@@ -27,7 +29,7 @@ import {
 } from 'react-native';
 
 function Home() {
-  const { firstName, lastName } = useSelector(selectUserState);
+  const { displayName } = useSelector(selectUserState);
   const { categories, selectedCategoryId } = useSelector(selectCategoriesState);
   const { donations } = useSelector(selectDonationsState);
   const dispatch = useDispatch();
@@ -71,15 +73,25 @@ function Home() {
               <View>
                 <Text style={style.headerIntroText}>Hello,</Text>
                 <Header
-                  title={`${firstName} ${lastName[0]}.👋`}
+                  title={`${displayName} 👋`}
                   type={1}
                 />
               </View>
-              <Image
-                resizeMode='contain'
-                source={require('../../assets/images/profile.png')}
-                style={style.profileImage}
-              />
+              <View>
+                <Image
+                  resizeMode='contain'
+                  source={require('../../assets/images/profile.png')}
+                  style={style.profileImage}
+                />
+                <Pressable
+                  onPress={async () => {
+                    dispatch(resetUser());
+                    await signOut();
+                  }}
+                >
+                  <Header title='Logout' type={3} color={'#156CF7'} />
+                </Pressable>
+              </View>
             </View>
             <View style={globalStyle.paddingHorizontal}>
               <Search

@@ -23,6 +23,7 @@ export const style = StyleSheet.create({
   profileImage: {
     width: 50,
     height: 50,
+    marginBottom: 8,
   },
   highlightedBanner: {
     width: '100%',
