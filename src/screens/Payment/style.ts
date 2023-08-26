@@ -5,4 +5,7 @@ export const style = StyleSheet.create({
     marginTop: 15,
     marginBottom: 10,
   },
+  button: {
+    paddingBottom: 20,
+  },
 });

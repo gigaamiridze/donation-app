@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView, ScrollView, View } from 'react-native';
-import { BackButton, Header } from '../../components';
+import { BackButton, Header, Button } from '../../components';
 import { selectDonationsState } from '../../redux';
 import { globalStyle } from '../../assets';
 import { style } from './style';
@@ -23,6 +23,9 @@ function Payment() {
           type={3}
         />
       </ScrollView>
+      <View style={style.button}>
+        <Button title='Confirm Payment' />
+      </View>
     </SafeAreaView>
   )
 }
