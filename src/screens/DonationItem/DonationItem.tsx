@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { IDonationScreenParams } from '../../interfaces';
 import { selectDonationsState } from '../../redux';
 import { globalStyle } from '../../assets';
+import { Routes } from '../../constants';
 import { BackButton, Badge, Header, Button } from '../../components';
 import { style } from './style';
 
@@ -30,7 +31,7 @@ function DonationItem() {
         <Text style={style.description}>{selectedDonationInformation?.description}</Text>
       </ScrollView>
       <View style={style.button}>
-        <Button title='Donate' />
+        <Button title='Donate' onPress={() => navigation.navigate(Routes.PAYMENT)} />
       </View>
     </SafeAreaView>
   )
