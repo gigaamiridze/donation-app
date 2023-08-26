@@ -8,4 +8,8 @@ export const style = StyleSheet.create({
   button: {
     paddingBottom: 20,
   },
+  cardForm: {
+    height: 190,
+    marginTop: 20,
+  },
 });
