@@ -31,7 +31,10 @@ function DonationItem() {
         <Text style={style.description}>{selectedDonationInformation?.description}</Text>
       </ScrollView>
       <View style={style.button}>
-        <Button title='Donate' onPress={() => navigation.navigate(Routes.PAYMENT)} />
+        <Button 
+          title='Donate' 
+          onPress={() => navigation.navigate(Routes.PAYMENT)} 
+        />
       </View>
     </SafeAreaView>
   )
