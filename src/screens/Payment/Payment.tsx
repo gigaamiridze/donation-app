@@ -1,17 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
-import { StripeProvider, CardForm } from '@stripe/stripe-react-native';
-import { SafeAreaView, ScrollView, View } from 'react-native';
+import { StripeProvider, CardForm, useConfirmPayment } from '@stripe/stripe-react-native';
+import { SafeAreaView, ScrollView, View, Alert } from 'react-native';
+import { selectDonationsState, selectUserState } from '../../redux';
 import { BackButton, Header, Button } from '../../components';
-import { selectDonationsState } from '../../redux';
 import { globalStyle } from '../../assets';
 import { Stripe } from '../../constants';
 import { style } from './style';
 
 function Payment() {
+  const [isReady, setIsReady] = useState<boolean>(false);
+  const { confirmPayment, loading } = useConfirmPayment();
   const { selectedDonationInformation } = useSelector(selectDonationsState);
+  const { email } = useSelector(selectUserState);
   const navigation = useNavigation();
+
+  const getPaymentIntentClientSecret = async () => {
+    const response = await fetch('http://10.0.2.2:5000/create-payment-intent', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email,
+        currency: 'usd',
+        amount: selectedDonationInformation?.price && Number(selectedDonationInformation.price) * 100,
+      }),
+    });
+
+    const { clientSecret } = await response.json();
+    return clientSecret;
+  }
+
+  const handlePayment = async () => {
+    const clientSecret = await getPaymentIntentClientSecret();
+    const { error, paymentIntent } = await confirmPayment(clientSecret, {
+      paymentMethodType: 'Card',
+    });
+
+    if (error) {
+      Alert.alert('Error has occured with your payment', error.localizedMessage);
+    } else if (paymentIntent) {
+      Alert.alert('Successful', 'The payment was confirmed successfully!');
+      setTimeout(() => navigation.goBack(), 2000);
+    }
+  }
 
   return (
     <SafeAreaView style={globalStyle.screenContainer}>
@@ -25,11 +59,20 @@ function Payment() {
           type={3}
         />
         <StripeProvider publishableKey={Stripe.PUBLISHABLE_KEY}>
-          <CardForm style={style.cardForm} />
+          <CardForm 
+            style={style.cardForm} 
+            onFormComplete={() => {
+              setIsReady(true);
+            }}
+          />
         </StripeProvider>
       </ScrollView>
       <View style={style.button}>
-        <Button title='Confirm Payment' />
+        <Button 
+          title='Confirm Payment' 
+          isDisabled={!isReady || loading}
+          onPress={async () => await handlePayment()}
+        />
       </View>
     </SafeAreaView>
   )
