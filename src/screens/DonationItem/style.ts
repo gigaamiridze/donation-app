@@ -1,6 +1,10 @@
 import { StyleSheet } from 'react-native';
 
 export const style = StyleSheet.create({
+  itemInfo: {
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+  },
   image: {
     width: '100%',
     height: 240,

@@ -24,7 +24,12 @@ function DonationItem() {
           source={{ uri: selectedDonationInformation?.image }}
           style={style.image}
         />
-        <Badge title={categoryInformation.name} />
+        <Badge 
+          title={categoryInformation.name}
+          fontSize={14}
+          lineHeight={17}
+          height={27}
+        />
         <View style={style.title}>
           <Header title={selectedDonationInformation?.name} type={1} />
         </View>
