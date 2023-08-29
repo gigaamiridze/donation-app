@@ -3,16 +3,17 @@
 Through the donation application, the user can log in, register, view the donation items, view their detailed information and, if desired, enter their own card details for donation and confirm payment.
 
 ## App Review
-![Login](public/screenshots/login.png)
-![Fill Login](public/screenshots/fill-login.png)
-![Register](public/screenshots/register.png)
-![Home](public/screenshots/home-1.png)
-![Home](public/screenshots/home-2.png)
-![Donation Item](public/screenshots/donation-item.png)
-![Payment](public/screenshots/payment.png)
-![Card Details](public/screenshots/card-details.png)
-![Successful Payment](public/screenshots/successful-payment.png)
-![Payment Error](public/screenshots/payment-error.png)
+
+<img src='public/screenshots/login.png' height='400' alt='Login' />
+<img src='public/screenshots/fill-login.png' height='400' alt='Fill Login' />
+<img src='public/screenshots/register.png' height='400' alt='Register' />
+<img src='public/screenshots/home-1.png' height='400' alt='Home' />
+<img src='public/screenshots/home-2.png' height='400' alt='Home' />
+<img src='public/screenshots/donation-item.png' height='400' alt='Donation Item' />
+<img src='public/screenshots/payment.png' height='400' alt='Payment' />
+<img src='public/screenshots/card-details.png' height='400' alt='Card Details' />
+<img src='public/screenshots/successful-payment.png' height='400' alt='Successful Payment' />
+<img src='public/screenshots/payment-error.png' height='400' alt='Payment Error' />
 
 This is a [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
