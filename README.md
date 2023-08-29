@@ -4,16 +4,16 @@ Through the donation application, the user can log in, register, view the donati
 
 ## App Review
 
-<img src='public/screenshots/login.png' height='400' alt='Login' />
-<img src='public/screenshots/fill-login.png' height='400' alt='Fill Login' />
-<img src='public/screenshots/register.png' height='400' alt='Register' />
-<img src='public/screenshots/home-1.png' height='400' alt='Home' />
-<img src='public/screenshots/home-2.png' height='400' alt='Home' />
-<img src='public/screenshots/donation-item.png' height='400' alt='Donation Item' />
-<img src='public/screenshots/payment.png' height='400' alt='Payment' />
-<img src='public/screenshots/card-details.png' height='400' alt='Card Details' />
-<img src='public/screenshots/successful-payment.png' height='400' alt='Successful Payment' />
-<img src='public/screenshots/payment-error.png' height='400' alt='Payment Error' />
+<img src='public/screenshots/login.png' height='500' alt='Login' />
+<img src='public/screenshots/fill-login.png' height='500' alt='Fill Login' />
+<img src='public/screenshots/register.png' height='500' alt='Register' />
+<img src='public/screenshots/home-1.png' height='500' alt='Home' />
+<img src='public/screenshots/home-2.png' height='500' alt='Home' />
+<img src='public/screenshots/donation-item.png' height='500' alt='Donation Item' />
+<img src='public/screenshots/payment.png' height='500' alt='Payment' />
+<img src='public/screenshots/card-details.png' height='500' alt='Card Details' />
+<img src='public/screenshots/successful-payment.png' height='500' alt='Successful Payment' />
+<img src='public/screenshots/payment-error.png' height='500' alt='Payment Error' />
 
 This is a [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
