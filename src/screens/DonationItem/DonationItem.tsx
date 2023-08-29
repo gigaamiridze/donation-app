@@ -18,22 +18,24 @@ function DonationItem() {
   return (
     <SafeAreaView style={globalStyle.screenContainer}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <BackButton onPress={() => navigation.goBack()} />
-        <Image 
-          resizeMode='cover'
-          source={{ uri: selectedDonationInformation?.image }}
-          style={style.image}
-        />
-        <Badge 
-          title={categoryInformation.name}
-          fontSize={14}
-          lineHeight={17}
-          height={27}
-        />
-        <View style={style.title}>
-          <Header title={selectedDonationInformation?.name} type={1} />
+        <View style={style.itemInfo}>
+          <BackButton onPress={() => navigation.goBack()} />
+          <Image 
+            resizeMode='cover'
+            source={{ uri: selectedDonationInformation?.image }}
+            style={style.image}
+          />
+          <Badge 
+            title={categoryInformation.name}
+            fontSize={14}
+            lineHeight={17}
+            height={27}
+          />
+          <View style={style.title}>
+            <Header title={selectedDonationInformation?.name} type={1} />
+          </View>
+          <Text style={style.description}>{selectedDonationInformation?.description}</Text>
         </View>
-        <Text style={style.description}>{selectedDonationInformation?.description}</Text>
       </ScrollView>
       <View style={style.button}>
         <Button 
