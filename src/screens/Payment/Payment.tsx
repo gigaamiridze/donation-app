@@ -15,9 +15,10 @@ function Payment() {
   const { selectedDonationInformation } = useSelector(selectDonationsState);
   const { email } = useSelector(selectUserState);
   const navigation = useNavigation();
+  const API_URL = 'https://stripepayment-bdgvffysyq-uc.a.run.app';
 
   const getPaymentIntentClientSecret = async () => {
-    const response = await fetch('http://10.0.2.2:5000/create-payment-intent', {
+    const response = await fetch(`${API_URL}/create-payment-intent`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
