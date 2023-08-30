@@ -1,24 +1,20 @@
-import React, { useState, useRef } from 'react';
+import React from 'react';
 import { View, Text } from 'react-native';
 import { IBadgeProps } from '../../interfaces';
 import { style } from './style';
 
-function Badge({ title }: IBadgeProps) {
-  const [width, setWidth] = useState<number>(0);
-  const textRef = useRef<Text>(null);
-  const paddingHorizontal = 10;
-  const badgeWidth = {
-    width: paddingHorizontal * 2 + width,
-  };
+function Badge(props: IBadgeProps) {
+  const { title, fontSize, lineHeight, height } = props;
 
   return (
-    <View style={[style.badge, badgeWidth]}>
+    <View style={[style.badge, height ? { height } : null]}>
       <Text 
-        ref={textRef}
-        onTextLayout={(event) => {
-          setWidth(event.nativeEvent.lines[0].width);
-        }}
-        style={style.title}
+        style={
+          [
+            style.title, 
+            fontSize && lineHeight ? { fontSize, lineHeight } : null
+          ]
+        }
       >
         {title}
       </Text>
