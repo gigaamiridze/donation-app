@@ -1,6 +1,22 @@
 # Donation App
 
-Through the donation application, the user can log in, register, view the donation items, view their detailed information and, if desired, enter their own card details for donation and confirm payment.
+📱 Through the donation application, the user can log in, register, view the donation items, view their detailed information and, if desired, enter their own card details for donation and confirm payment.
+
+The secure donation payment system is integrated with server-side code that is developed using Node.js, TypeScript, Express.js, and Stripe. Server-side code uploaded to Firebase Functions for efficient processing.
+
+🔗 Server-side source code: [Here](https://github.com/gigaamiridze/stripe-payment)
+
+🌟 Key Features:
+
+✅ User Authentication: Seamlessly register and log in using Firebase Authentication.
+
+✅ Secure Payments: Implemented a secure payment system using Node.js, TypeScript, Express.js, and Stripe.
+
+✅ Firebase Functions: Uploaded server-side code to Firebase Functions for efficient processing.
+
+✅ User-friendly Interface: Built with React Native to ensure a smooth and intuitive user experience.
+
+✅ Donation Items: Browse various donation items with detailed information.
 
 ## App Video Review
 
