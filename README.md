@@ -4,7 +4,7 @@ Through the donation application, the user can log in, register, view the donati
 
 ## App Video Review
 
-<a href='https://clipchamp.com/watch/iUIgTFpxWug/embed'>Click here and view the video</a>
+<a href='https://clipchamp.com/watch/iUIgTFpxWug/embed' target='_blank'>Click here and view the video</a>
 
 ## App Image Review
 
