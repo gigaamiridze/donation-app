@@ -2,7 +2,16 @@
 
 Through the donation application, the user can log in, register, view the donation items, view their detailed information and, if desired, enter their own card details for donation and confirm payment.
 
-## App Review
+## App Video Review
+
+<div style="position:relative;width:fit-content;height:fit-content;">
+  <a style="position:absolute;top:20px;right:1rem;opacity:0.8;" href="https://clipchamp.com/watch/iUIgTFpxWug?utm_source=embed&utm_medium=embed&utm_campaign=watch">
+    <img loading="lazy" style="height:22px;" src="https://clipchamp.com/e.svg" alt="Made with Clipchamp" />
+  </a>
+  <iframe allow="autoplay;" allowfullscreen style="border:none" src="https://clipchamp.com/watch/iUIgTFpxWug/embed" width="640" height="360"></iframe>
+</div>
+
+## App Image Review
 
 <img src='public/screenshots/login.png' height='500' alt='Login' />
 <img src='public/screenshots/fill-login.png' height='500' alt='Fill Login' />
