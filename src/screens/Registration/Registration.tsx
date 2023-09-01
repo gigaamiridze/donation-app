@@ -48,6 +48,7 @@ function Registration() {
             onPress={async () => {
               const result = await signUp(fullName, email, password);
               if (result.status) {
+                setError('');
                 setSuccess(result.success);
                 setTimeout(() => navigation.goBack(), 3000);
               } else {

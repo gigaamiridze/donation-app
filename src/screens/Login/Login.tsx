@@ -46,6 +46,7 @@ function Login() {
                 if (result.data) {
                   dispatch(logIn(result.data));
                 }
+                setError('');
                 navigation.navigate(Routes.HOME);
               } else {
                 setError(result.error);
