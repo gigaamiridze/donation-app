@@ -20,7 +20,7 @@ The secure donation payment system is integrated with server-side code that is d
 
 ## App Video Review
 
-<a href='https://clipchamp.com/watch/iUIgTFpxWug/embed' target='_blank'>Click here and view the video</a>
+<a href='https://clipchamp.com/watch/S6FgBBOxxLH/embed' target='_blank'>Click here and view the video</a>
 
 ## App Image Review
 
