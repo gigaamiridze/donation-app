@@ -1,8 +1,8 @@
-export * from './DonationItem';
-export * from './BackButton';
-export * from './Header';
-export * from './Button';
-export * from './Search';
-export * from './Input';
-export * from './Badge';
-export * from './Tab';
+export { default as DonationItem } from './DonationItem/DonationItem';
+export { default as BackButton } from './BackButton/BackButton';
+export { default as Header } from './Header/Header';
+export { default as Button } from './Button/Button';
+export { default as Search } from './Search/Search';
+export { default as Input } from './Input/Input';
+export { default as Badge } from './Badge/Badge';
+export { default as Tab } from './Tab/Tab';
