@@ -1,9 +1,10 @@
 import { StyleSheet } from 'react-native';
+import { horizontalScale, verticalScale, scaleFontSize } from '../../assets';
 
 export const style = StyleSheet.create({
   tab: {
-    height: 50,
-    borderRadius: 50,
+    height: verticalScale(50),
+    borderRadius: horizontalScale(50),
     backgroundColor: '#2979F2',
     justifyContent: 'center',
   },
@@ -12,9 +13,9 @@ export const style = StyleSheet.create({
   },
   title: {
     fontFamily: 'Inter',
-    fontSize: 14,
+    fontSize: scaleFontSize(14),
     fontWeight: '500',
-    lineHeight: 17,
+    lineHeight: scaleFontSize(17),
     letterSpacing: 0.5,
     color: '#FFFFFF',
     textAlign: 'center',

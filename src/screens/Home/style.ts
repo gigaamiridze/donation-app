@@ -1,10 +1,11 @@
 import { StyleSheet } from 'react-native';
+import { horizontalScale, verticalScale, scaleFontSize } from '../../assets';
 
 export const style = StyleSheet.create({
   homeScreenContainer: {
     flexDirection: 'column',
-    rowGap: 20,
-    paddingVertical: 20,
+    rowGap: verticalScale(20),
+    paddingVertical: verticalScale(20), 
   },
   header: {
     flexDirection: 'row',
@@ -14,34 +15,34 @@ export const style = StyleSheet.create({
   headerIntroText: {
     fontFamily: 'Inter',
     fontWeight: '400',
-    fontSize: 16,
-    lineHeight: 19,
+    fontSize: scaleFontSize(16),
+    lineHeight: scaleFontSize(19),
     letterSpacing: 0.5,
     color: '#636776',
-    marginBottom: 5,
+    marginBottom: verticalScale(5),
   },
   profileImage: {
-    width: 50,
-    height: 50,
-    marginBottom: 8,
+    width: horizontalScale(50),
+    height: verticalScale(50),
+    marginBottom: verticalScale(8),
   },
   highlightedBanner: {
     width: '100%',
-    height: 160,
+    height: verticalScale(160),
   },
   categories: {
     flexDirection: 'column',
-    rowGap: 16,
-    paddingLeft: 24,
+    rowGap: verticalScale(16),
+    paddingLeft: horizontalScale(24),
   },
   categoryItem: {
-    marginRight: 10,
+    marginRight: horizontalScale(10),
   },
   donationItemsContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
-    columnGap: 17,
-    rowGap: 23,
+    columnGap: horizontalScale(17),
+    rowGap: verticalScale(23),
   },
 });

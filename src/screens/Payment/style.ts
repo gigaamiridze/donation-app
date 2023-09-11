@@ -1,15 +1,16 @@
 import { StyleSheet } from 'react-native';
+import { verticalScale } from '../../assets';
 
 export const style = StyleSheet.create({
   paymentTitle: {
-    marginTop: 15,
-    marginBottom: 10,
+    marginTop: verticalScale(15),
+    marginBottom: verticalScale(10),
   },
   button: {
-    paddingBottom: 20,
+    paddingBottom: verticalScale(20),
   },
   cardForm: {
-    height: 190,
-    marginTop: 20,
+    height: verticalScale(190),
+    marginTop: verticalScale(20),
   },
 });

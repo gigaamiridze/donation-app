@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { scaleFontSize } from '../../assets';
 
 export const style = StyleSheet.create({
   title: {
@@ -8,15 +9,15 @@ export const style = StyleSheet.create({
     letterSpacing: 0.5,
   },
   title1: {
-    fontSize: 24,
-    lineHeight: 29,
+    fontSize: scaleFontSize(24),
+    lineHeight: scaleFontSize(29),
   },
   title2: {
-    fontSize: 18,
-    lineHeight: 22,
+    fontSize: scaleFontSize(18),
+    lineHeight: scaleFontSize(22),
   },
   title3: {
-    fontSize: 16,
-    lineHeight: 19,
+    fontSize: scaleFontSize(16),
+    lineHeight: scaleFontSize(19),
   },
 });

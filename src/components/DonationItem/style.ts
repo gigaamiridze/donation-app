@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { horizontalScale, verticalScale } from '../../assets';
 
 export const style = StyleSheet.create({
   donationItem: {
@@ -6,8 +7,8 @@ export const style = StyleSheet.create({
   },
   image: {
     width: '100%',
-    height: 170,
-    borderRadius: 20,
+    height: verticalScale(170),
+    borderRadius: horizontalScale(20),
   },
   badge: {
     position: 'absolute',
@@ -18,6 +19,6 @@ export const style = StyleSheet.create({
   donationInfo: {
     flexDirection: 'column',
     rowGap: 5,
-    marginTop: 16,
+    marginTop: verticalScale(16),
   },
 });

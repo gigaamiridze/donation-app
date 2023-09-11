@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { horizontalScale, verticalScale, scaleFontSize } from '../../assets';
 
 export const style = StyleSheet.create({
   itemInfo: {
@@ -7,26 +8,26 @@ export const style = StyleSheet.create({
   },
   image: {
     width: '100%',
-    height: 240,
-    marginTop: 12,
-    marginBottom: 24,
-    borderRadius: 5,
+    height: verticalScale(240),
+    marginTop: verticalScale(12),
+    marginBottom: verticalScale(24),
+    borderRadius: horizontalScale(5),
   },
   title: {
-    marginTop: 16,
-    marginBottom: 7,
+    marginTop: verticalScale(16),
+    marginBottom: verticalScale(7),
   },
   description: {
     fontFamily: 'Inter',
     fontWeight: '400',
-    fontSize: 14,
-    lineHeight: 20,
+    fontSize: scaleFontSize(14),
+    lineHeight: scaleFontSize(20),
     letterSpacing: 0.5,
     color: '#000000',
-    marginBottom: 10,
+    marginBottom: verticalScale(10),
     paddingHorizontal: 7,
   },
   button: {
-    paddingBottom: 20,
+    paddingBottom: verticalScale(20),
   },
 });
